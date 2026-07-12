@@ -2,21 +2,24 @@ name: Build Kivy APK/AAB
 
 on:
   push:
-    branches: [ master, main ]
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
+        uses: kivymd/buildozer-action@master
         with:
           buildozer_version: stable
-          
+        env:
+          # تأكد من أن ملف buildozer.spec في المجلد الرئيسي للمشروع
+          # سيقوم Buildozer بقراءة المتطلبات من هناك تلقائياً
+          LOG_LEVEL: 2
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
