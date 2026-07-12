@@ -1,1 +1,1 @@
-flet
+python3,kivy,kivymd,requests,pillow,pyjnius,openssl,urllib3,certifi
