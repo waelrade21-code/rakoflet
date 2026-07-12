@@ -16,8 +16,7 @@ jobs:
         with:
           buildozer_version: stable
         env:
-          # تأكد من أن ملف buildozer.spec في المجلد الرئيسي للمشروع
-          # سيقوم Buildozer بقراءة المتطلبات من هناك تلقائياً
+
           LOG_LEVEL: 2
 
       - name: Upload Artifacts
